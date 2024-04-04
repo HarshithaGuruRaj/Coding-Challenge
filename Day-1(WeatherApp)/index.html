@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Weather Application</title>
+        <link href="./styles.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="./weather.js"></script>
+    </head>
+    <body>
+        <h3 class="welcome">Welcome to 30-Days coding challenge.</h3>
+        <h1 class="heading">Day-1 Weather Application</h1>
+        <div class="weather-container">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <input type="text" id="city"  placeholder="Enter the city name" >
+                <button type="submit" onclick="getWeather()">Check Weather</button>
+                <img id="city-img" alt="Weather Icon">
+                <div id="temp"></div>
+                <div id="humidity"></div>
+                <div id="weather-info"> </div>
+                <div id="hourly-forecast"></div>
+        </div>
+    </body>
+</html>
