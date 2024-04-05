@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/css/form.css">
+        <title>Hash's QR Code generator</title>
+        
+    </head>
+    <body> 
+        <h2 class="heading">QR Code generator</h2>
+        <form action="/" method="POST" class="form-gen">
+            <input type="text" name="link" required/>
+            <button type="submit">Generate QR</button>
+        </form>
+        {% if data %}
+        <div class="generated">
+            <img src="{{data}}" alt="QR scanner">
+            <p>Here you can scan the qr for the website url</p>
+        </div>
+        {% elif error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+            <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        
+        {% endif %}
+    </body>
+</html>
