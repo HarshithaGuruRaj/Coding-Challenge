@@ -1,26 +1,51 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../static/css/form.css">
-        <title>Hash's QR Code generator</title>
-        
+        <title>Hash's QR Code generator</title> 
     </head>
     <body> 
-        <h2 class="heading">QR Code generator</h2>
-        <form action="/" method="POST" class="form-gen">
-            <input type="text" name="link" required/>
+        <div class="heading">
+            <h2>QR Code generator</h2>
+            <h4>Insert your URL here</h4>
+        </div>
+        <form action="/" method="POST" class="form-gen" id="qrForm">
+            <input type="text" name="link" id="linkInput" placeholder="Enter the URL"/>
             <button type="submit">Generate QR</button>
         </form>
-        {% if data %}
-        <div class="generated">
-            <img src="{{data}}" alt="QR scanner">
-            <p>Here you can scan the qr for the website url</p>
+        <div>
+            {% if data %}
+            <div class="generated">
+                <img src="{{ data }}" alt="QR scanner">
+                <p>Here you can scan the qr for the website url</p>
+            </div>
+            {% endif %}
         </div>
-        {% elif error %}
-        <div class="alert alert-danger" role="alert">
-            {{ error }}
-            <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-        
-        {% endif %}
+
+        <script>
+            document.getElementById('qrForm').addEventListener('submit', function(event) {
+                var inputValue = document.getElementById('linkInput').value.trim();
+                if (inputValue === '') {
+                    // Prevent the form from being submitted
+                    event.preventDefault();
+                    // Display an alert to the user
+                    alert('Please provide a valid URL.');
+                }
+            });
+        </script>
+
+        <script>
+            window.onload = function() {
+                // This script checks if the page is being reloaded
+                if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+                    // Code to handle the QR code disappearance
+                    document.querySelector('.generated').style.display = 'none';
+                }
+            };
+        </script>
+            
     </body>
 </html>

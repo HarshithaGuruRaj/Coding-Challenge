@@ -9,7 +9,7 @@ app= Flask(__name__)
 def home():
     return render_template('form.html')
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['POST'])
 def generateQR():
     if(request.method == 'POST'):
         memory=BytesIO()
