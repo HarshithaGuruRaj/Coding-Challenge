@@ -1,0 +1,49 @@
+/* Optional CSS to ensure labels and inputs align nicely on larger screens */
+@media (min-width: 768px) {
+    .form-label {
+        text-align: right;
+        padding-right: 1em;
+        align-self: center;
+    }
+    .form-control {
+        max-width: 80%;
+    }
+}
+.background {
+    background-color: rgb(145, 197, 201);
+}
+body{
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 160%;
+}
+
+
+form {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    text-align  : center;
+    display: inline-block;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    border-radius: 2em;
+}
+
+.blue {
+    background-color: rgb(100, 189, 202);
+}
+input {
+    padding: 4px;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
